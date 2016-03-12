@@ -1,6 +1,6 @@
 package br.com.efraimgentil.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -29,4 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
   }
 
+  @Bean
+  @Override
+  protected AuthenticationManager authenticationManager() throws Exception {
+    return super.authenticationManager();
+  }
 }

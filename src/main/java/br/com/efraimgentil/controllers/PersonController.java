@@ -3,6 +3,8 @@ package br.com.efraimgentil.controllers;
 import br.com.efraimgentil.models.Person;
 import br.com.efraimgentil.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +21,7 @@ public class PersonController {
   @Autowired
   protected PersonRepository personRepository;
 
-  @Sec
+  @Secured("ROLE_LOL")
   @RequestMapping(value = { "/" } , method = RequestMethod.GET )
   public List<Person> persons(){
     return personRepository.findAll();
