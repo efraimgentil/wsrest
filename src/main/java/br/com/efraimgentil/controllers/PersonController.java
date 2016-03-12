@@ -19,6 +19,7 @@ public class PersonController {
   @Autowired
   protected PersonRepository personRepository;
 
+  @Sec
   @RequestMapping(value = { "/" } , method = RequestMethod.GET )
   public List<Person> persons(){
     return personRepository.findAll();
